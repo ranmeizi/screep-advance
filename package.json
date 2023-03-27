@@ -1,0 +1,11 @@
+{
+  "name": "screep-advance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "boboan",
+  "private":"true",
+  "license": "MIT",
+  "workspaces":[
+    "packages/*"
+  ]
+}
