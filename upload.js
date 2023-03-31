@@ -25,6 +25,7 @@ async function addModule(dir) {
       modules[module] = (await fs.readFile(path.join(dir, name))).toString();
     } else if (ext === ".wasm") {
       modules[module] = {
+        normal: (await fs.readFile(path.join(dir, name))).toString(),
         binary: (await fs.readFile(path.join(dir, name))).toString("base64"),
       };
     }
@@ -71,7 +72,7 @@ async function uploadCode(modules) {
 async function main() {
   try {
     await getModules();
-    console.log(modules)
+    console.log(modules);
     await uploadCode(modules);
   } catch (e) {
     console.log(e);
